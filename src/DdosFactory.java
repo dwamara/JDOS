@@ -45,13 +45,7 @@ public class DdosFactory {
      * @param ddosPattern
      * @return a subclass of DDOS
      */
-    public static DDOS createDDOS(DDOSPattern ddosPattern) {
-        switch(ddosPattern.getProtocol().toLowerCase()) {
-            case "tcp":
-                return new TCPDDos(ddosPattern);
-            case "udp":
-                return new UDPDDos(ddosPattern);
-        }
-        return new TCPDDos(ddosPattern);
+    public static DDOS createDDOS(final DDOSPattern ddosPattern) {
+        return "udp".equalsIgnoreCase(ddosPattern.getProtocol()) ? new UDPDDos(ddosPattern) : new TCPDDos(ddosPattern);
     }
 }
