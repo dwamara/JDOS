@@ -120,7 +120,8 @@ public class DDOSPattern implements Serializable {
      * @param socketTimeout 
      */
     public DDOSPattern(String protocol, String host, int port, int threads, String message, int hours, int minutes, int seconds, int timeout, int socketTimeout) {
-        this.protocol = protocol;
+	    this.host = host;
+	    this.protocol = protocol;
         this.port = port;
         this.threads = threads;
         this.message = message;
